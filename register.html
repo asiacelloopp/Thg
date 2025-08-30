@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Register</h2>
+<form id="registerForm">
+<input id="newuser" placeholder="Username"><br><br>
+<input id="newpass" type="password" placeholder="Password"><br><br>
+<button type="button" onclick="register()">Register</button>
+</form>
+<p id="regMessage"></p>
+<script>
+function register() {
+  var newuser = document.getElementById('newuser').value;
+  // ⚠️ XSS: عرض اسم المستخدم مباشرة بدون فلترة
+  document.getElementById('regMessage').innerHTML = "User registered: " + newuser;
+}
+</script>
+<a href="login.html">Login</a> | <a href="index.html">Back to Shop</a>
+</body>
+</html>

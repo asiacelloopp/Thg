@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Login</h2>
+<form id="loginForm">
+<input id="username" placeholder="Username"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+<button type="button" onclick="login()">Login</button>
+</form>
+<p id="message"></p>
+<script>
+function login() {
+  // ⚠️ XSS: عرض اسم المستخدم مباشرة بدون فلترة
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  if(username === "admin" && password === "123") {
+    document.getElementById('message').innerHTML = "Welcome " + username;
+  } else {
+    document.getElementById('message').innerHTML = "Login failed for " + username;
+  }
+}
+</script>
+<a href="register.html">Register</a> | <a href="index.html">Back to Shop</a>
+</body>
+</html>
